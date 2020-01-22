@@ -1,7 +1,7 @@
 var express = require('express');
 var http = require('http');
 
-var vmandarinia = express();
+var app = express();
 
 const AssistantV2 = require('ibm-watson/assistant/v2');
 const { IamAuthenticator } = require('ibm-watson/auth');
@@ -22,7 +22,7 @@ const assistant = new AssistantV2({
 //  })
 //});
 
-vmandarinia.get('/', function (req, res){
+app.get('/', function (req, res){
   http.res("ciao!")
   assistant.message(
   {
@@ -38,5 +38,5 @@ vmandarinia.get('/', function (req, res){
   });
 });
 
-vmandarinia.listen(3000)
+app.listen(3000)
 console.log(process.env["ASSISTANT_APIKEY"])
